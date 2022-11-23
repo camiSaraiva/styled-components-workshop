@@ -1,6 +1,11 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import loadingSpinner from "../assets/spinner.gif";
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import loadingSpinner from '../assets/spinner.gif';
+import { StyledSection } from '../components/styled/Section.styled';
+import { StyledForm } from '../components/styled/Form.styled';
+import { StyledButton } from '../components/styled/Button.styled';
+import { toast } from 'react-toastify';
+import { Slide, Zoom, Flip, Bounce } from 'react-toastify';
 
 /* Import Your Files Below This Line*/
 
@@ -14,44 +19,54 @@ function FakeLogin() {
   const fakeLogin = () => {
     setLoading(true);
     setTimeout(() => {
+      notify();
       setLoading(false);
-      navigate("/");
+      navigate('/');
     }, 3000);
   };
 
+  const notify = () => {
+    toast.success('Login Sucessful!', {
+      position: toast.POSITION.TOP_CENTER,
+      theme: 'colored',
+      icon: '😄',
+      transition: Zoom,
+    });
+  };
+
   return (
-    <section>
+    <StyledSection>
       <div>
         {/* Loading Spinner */}
         {loading && (
           <img
             src={loadingSpinner}
-            alt="loading spinner"
+            alt='loading spinner'
             style={{
               width: 170,
               height: 170,
-              "margin-top": 11.5,
-              "margin-bottom": 11.5,
+              'margin-top': 11.5,
+              'margin-bottom': 11.5,
             }}
           />
         )}
 
         {/* Login From */}
         {!loading && (
-          <form>
-            <label htmlFor="username">username</label>
-            <input type="text" name="username" />
+          <StyledForm>
+            <label htmlFor='username'>username</label>
+            <input type='text' name='username' />
 
-            <label htmlFor="password">password</label>
-            <input type="password" name="password" />
+            <label htmlFor='password'>password</label>
+            <input type='password' name='password' />
 
-            <button type="submit" onClick={() => fakeLogin()}>
+            <StyledButton type='submit' onClick={() => fakeLogin()}>
               <h3>Login</h3>
-            </button>
-          </form>
+            </StyledButton>
+          </StyledForm>
         )}
       </div>
-    </section>
+    </StyledSection>
   );
 }
 

@@ -1,31 +1,32 @@
-import React from "react";
-import toastLogo from "../assets/toast-logo.png";
+import React from 'react';
+import toastLogo from '../assets/toast-logo.png';
+import { StyledButton } from '../components/styled/Button.styled';
 
 /* Import Your Files Below This Line*/
-
+import { StyledSection } from '../components/styled/Section.styled';
 function AboutToastify() {
   return (
-    <section>
+    <StyledSection>
       <div>
-        <img src={toastLogo} alt="Toastify Logo" />
+        <img src={toastLogo} alt='Toastify Logo' />
         <article>
           <h2>
-            React-Toastify allows you to add notifications to your app with
-            ease. No more nonsense! Easy to set up for real, you can make it
-            work in less than 10sec! Super easy to customize! Swipe to close 🤘
+            React-Toastify allows you to add notifications to your app with ease. No more nonsense!
+            Easy to set up for real, you can make it work in less than 10sec! Super easy to
+            customize! Swipe to close 🤘
           </h2>
           <a
-            href="https://fkhadra.github.io/react-toastify/introduction"
-            target="_blank"
-            rel="noreferrer"
+            href='https://fkhadra.github.io/react-toastify/introduction'
+            target='_blank'
+            rel='noreferrer'
           >
-            <button>
+            <StyledButton>
               <h3>Learn more about Toastify</h3>
-            </button>
+            </StyledButton>
           </a>
         </article>
       </div>
-    </section>
+    </StyledSection>
   );
 }
 
